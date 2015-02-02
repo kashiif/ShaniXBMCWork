@@ -1,16 +1,105 @@
 <streamingInfos>
+<streaminginfo>
+	<cname>Abu Dhabi Sports 1</cname>
+	<item>
+	<title>Low</title>
+	<link>http://205.185.216.10/h5f3k7p8/cds/smil:adsport1hd/chunklist_b440000.m3u8</link>
+	</item>
+</streaminginfo>
+<streaminginfo>
+	<cname>Abu Dhabi Sports 1</cname>
+	<item>
+	<title>Med</title>
+	<link>http://205.185.216.10/h5f3k7p8/cds/smil:adsport1hd/chunklist_b528000.m3u8</link>
+	</item>
+</streaminginfo>
+<streaminginfo>
+	<cname>Abu Dhabi Sports 1</cname>
+	<item>
+	<title>High</title>
+	<link>http://205.185.216.10/h5f3k7p8/cds/smil:adsport1hd/chunklist_b880000.m3u8</link>
+	</item>
+</streaminginfo>
+
 
 <streaminginfo>
-<cname>Maghreb24</cname>
-<item>
-<title>Ustream</title>
-<link>$doregex[get-link]</link>
-<regex>
-<name>get-link</name>
-<expres>$pyFunction:get_ustream('http://iphone-streaming.ustream.tv/ustreamVideo/17663346/streams/live/playlist.m3u8')</expres>
-<page></page>
-</regex>
-</item>
+	<cname>Abu Dhabi Sports 2</cname>
+	<item>
+	<title>Low</title>
+	<link>http://205.185.216.10/h5f3k7p8/cds/smil:adsport2hd/chunklist_b440000.m3u8</link>
+	</item>
+</streaminginfo>
+<streaminginfo>
+	<cname>Abu Dhabi Sports 2</cname>
+	<item>
+	<title>Med</title>
+	<link>http://205.185.216.10/h5f3k7p8/cds/smil:adsport2hd/chunklist_b528000.m3u8</link>
+	</item>
+</streaminginfo>
+<streaminginfo>
+	<cname>Abu Dhabi Sports 2</cname>
+	<item>
+	<title>High</title>
+	<link>http://205.185.216.10/h5f3k7p8/cds/smil:adsport2hd/chunklist_b880000.m3u8</link>
+	</item>
+</streaminginfo>
+
+<streaminginfo>
+	<cname>Abu Dhabi Extra HD</cname>
+	<item>
+	<title>Low</title>
+	<link>http://205.185.216.10/h5f3k7p8/cds/smil:adsportextrahd/chunklist_b440000.m3u8</link>
+	</item>
+</streaminginfo>
+<streaminginfo>
+	<cname>Abu Dhabi Extra HD</cname>
+	<item>
+	<title>Med</title>
+	<link>http://205.185.216.10/h5f3k7p8/cds/smil:adsportextrahd/chunklist_b528000.m3u8</link>
+	</item>
+</streaminginfo>
+<streaminginfo>
+	<cname>Abu Dhabi Extra HD</cname>
+	<item>
+	<title>High</title>
+	<link>http://205.185.216.10/h5f3k7p8/cds/smil:adsportextrahd/chunklist_b880000.m3u8</link>
+	</item>
+</streaminginfo>
+
+<streaminginfo>
+	<cname>Mehwar</cname>
+	<item>
+	<title>onlinehorizons</title>
+ 	<link>rtmp://livestreaming4.onlinehorizons.net/MehwarTV playpath=livestream swfUrl=http://onlinehorizons.net/livestreaming/MehwarTV/player.swf pageUrl=http://onlinehorizons.net/livestreaming/MehwarTV/ live=1 timeout=20</link>
+	</item>
+</streaminginfo>
+
+<streaminginfo>
+	<cname>Mehwar Drama</cname>
+	<item>
+	<title>onlinehorizons</title>
+	<link>rtmp://livestreaming4.onlinehorizons.net/MehwarTVDrama playpath=livestream swfUrl=http://onlinehorizons.net/livestreaming/MehwarTVDrama/player.swf pageUrl=http://onlinehorizons.net/livestreaming/MehwarTVDrama/ live=1 timeout=20</link>
+	</item>
+</streaminginfo>
+
+<streaminginfo>
+	<cname>Mehwar 2</cname>
+	<item>
+	<title>onlinehorizons</title>
+	<link>rtmp://livestreaming4.onlinehorizons.net/MehwarTV2 playpath=livestream swfUrl=http://onlinehorizons.net/livestreaming/MehwarTV2/player.swf pageUrl=http://onlinehorizons.net/livestreaming/MehwarTV2/ live=1 timeout=20</link>
+	</item>
+</streaminginfo>
+<streaminginfo>
+	<cname>Maghreb24</cname>
+	<item>
+	<title>Ustream</title>
+	<link>$doregex[get-link]</link>
+	<regex>
+	<name>get-link</name>
+	<expres>$pyFunction:get_ustream('http://iphone-streaming.ustream.tv/ustreamVideo/17663346/streams/live/playlist.m3u8')</expres>
+	<page></page>
+	</regex>
+	</item>
 </streaminginfo>
 <streaminginfo>
 	<cname>CafeCreme 1</cname>
@@ -1991,11 +2080,18 @@
 <streaminginfo><cname>Aljazeera Children</cname><item><title>qna.org</title><link>rtmp://AgendaStreamer3.qna.org.qa/jsc/?hghpl]=a2V5bGl2ZTE5Ny0xNjItMTE1LTIyMzIwMTQtMDItMjUtMTUtMzktMjI=/jsc timeout=20</link></item></streaminginfo>
 <streaminginfo><cname>Aljazeera Children</cname><item><title>m3u8 137</title><link>http://137.135.68.232:1935/jsc/jsc/gmswf.m3u8?keylive217-230-225-22014-06-14-09-02-23&amp;v=hghpl] timeout=20</link></item></streaminginfo>
 <streaminginfo><cname>Aljazeera Children</cname><item><title>Bcoveliveios</title><link>http://bcoveliveios-i.akamaihd.net/hls/live/206572/2014288370001/playlist.m3u8</link></item></streaminginfo>
+<streaminginfo><cname>Aljazeera Children</cname><item><title>brightcove03</title><link>http://brightcove03-f.akamaihd.net/jeem_mena_400@95898?gmswf</link></item></streaminginfo>
+<streaminginfo><cname>Aljazeera Children</cname><item><title>Low_78.JSC</title><link>rtmp://78.100.40.195:1935/jsc/?gmswf/jsc timeout=20</link></item></streaminginfo>
 
 <streaminginfo><cname>ANB</cname><item><title>188</title><link>http://188.247.93.26:1935/live/anb.stream_360p/hassuni.m3u8</link></item></streaminginfo>
 <streaminginfo><cname>Aldiyar</cname><item><title>188</title><link>http://188.247.93.26:1935/live/aldyar.stream_360p/hassuni.m3u8</link></item></streaminginfo>
 <streaminginfo><cname>Kaifa</cname><item><title>188</title><link>http://188.247.93.26:1935/live/kifa.stream_360p/hassuni.m3u8</link></item></streaminginfo>
 <streaminginfo><cname>Aghanina</cname><item><title>arabch.tv</title><link>http://188.247.93.26:1935/live/aghanina.stream_360p/playlist.m3u8</link></item></streaminginfo>
+<streaminginfo><cname>Libya International</cname><item><title>arabch.tv</title><link>http://188.247.93.26:1935/live/Libyainternational.stream_360p/playlist.m3u8</link></item></streaminginfo>
+<streaminginfo><cname>Libya Toumast</cname><item><title>arabch.tv</title><link>http://188.247.93.26:1935/live/LibyaToumast.stream_360p/playlist.m3u8</link></item></streaminginfo>
+<streaminginfo><cname>Libya Toumast</cname><item><title>arabch.tv</title><link>http://188.247.93.26:1935/live/libyaalrasmya.stream_360p/playlist.m3u8</link></item></streaminginfo>
+<streaminginfo><cname>Al Fursan</cname><item><title>arabch.tv</title><link>http://188.247.93.26:1935/live/fursan.stream_360p/playlist.m3u8</link></item></streaminginfo>
+<streaminginfo><cname>Burhan</cname><item><title>arabch.tv</title><link>http://188.247.93.26:1935/live/burhan.stream_360p/playlist.m3u8</link></item></streaminginfo>
 
 
 <streaminginfo>
@@ -3299,6 +3395,27 @@
 	<page>http://www.arabic-toons.com/Disney-XD-en-direct-live.html</page>
 	<ignorecache/>
 	</regex>
+	</item>
+</streaminginfo>
+<streaminginfo>
+	<cname>Dream 1</cname>
+	<item>
+		<title>Elahmad</title>
+		<link>http://162.212.176.107:1935/dream_1/globaltv-dream_1.stream/gmswf.m3u8</link>
+	</item>
+</streaminginfo>
+<streaminginfo>
+	<cname>Moga Comedy</cname>
+	<item>
+	<title>Elahmad</title>
+		<link>http://162.212.176.107:1935/moga_comedy/globaltv-moga_comedy.stream/gmswf.m3u8</link>
+	</item>
+</streaminginfo>
+<streaminginfo>
+	<cname>Misr Alaan</cname>
+	<item>
+		<title>Elahmad</title>
+		<link>209.95.39.148:1935/8028/globaltv.miralaan.stream/gmswf.m3u8</link>
 	</item>
 </streaminginfo>
 </streamingInfos>
