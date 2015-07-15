@@ -19,7 +19,7 @@
 
 import urllib
 import base64
-import re
+import re,urllib2,cookielib
 
 
 def decode(r):
@@ -280,8 +280,6 @@ def func_h(n, f):
     return a,o
 
 def decrypt(val,key):    
-
-
     f= decode(val);
     c=f[8:16]
     k=func_u(key);
@@ -333,4 +331,38 @@ def getCaptchaUrl(page_data):
         img_url='http://oneplay.tv/embed/'+img_url
     print 'catcha url',img_url
     return img_url
+def getUrl(url, cookieJar=None,post=None, timeout=20, headers=None, returnResponse=False, noredirect=False):
 
+    cookie_handler = urllib2.HTTPCookieProcessor(cookieJar)
+    opener = urllib2.build_opener(cookie_handler, urllib2.HTTPBasicAuthHandler(), urllib2.HTTPHandler())
+#    opener = urllib2.install_opener(opener)
+    
+    req = urllib2.Request(url)
+    req.add_header('User-Agent','Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.154 Safari/537.36')
+    if headers:
+        for h,hv in headers:
+            req.add_header(h,hv)
+
+    response = opener.open(req,post,timeout=timeout)
+    if returnResponse: return response
+    link=response.read()
+    response.close()
+    return link;
+    
+def decrypt_oneplaypage(page_url, cookieJar):
+    if page_url.startswith("http"):
+        page_data= getUrl(page_url,cookieJar)
+    else:
+        page_data=page_url
+    patt='var .*?(\[.*?);'
+    myvar=''
+    var_dec='myvar='+re.findall(patt,page_data)[0]
+    exec(var_dec)
+    patt2="\]\]\(_.*?\[(.*)\],.*?\[(.*?)\]"
+    valid,pwdid=re.findall(patt2,page_data)[0]
+    return decrypt (myvar[int(valid)],myvar[int(pwdid)])
+
+
+    
+    
+    
