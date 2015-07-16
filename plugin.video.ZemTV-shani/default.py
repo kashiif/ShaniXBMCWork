@@ -304,6 +304,7 @@ def AddSports(url):
     addDir('Willow.Tv (login required)' ,base64.b64decode('aHR0cDovL3d3dy53aWxsb3cudHYv') ,19,'')
     addDir('Super Sports' ,'sss',34,'')
     addDir('PV2 Sports' ,'sss',36,'')
+    addDir('Streams' ,'sss',39,'')
 
 def PlayPopeLive(url):
     playlist = xbmc.PlayList(1)
@@ -380,6 +381,21 @@ def AddPv2Sports(url=None):
             cid=source.findtext('programURL')
             addDir(cname ,base64.b64encode(cid),37,'', False, True,isItFolder=False)
 
+def AddStreamSports(url=None):
+    jsondata=getUrl('http://videostream.dn.ua/list/GetLeftMenuShort?lng=en')
+    sources= json.loads(jsondata)
+    ret=[]
+    addDir('Refresh' ,'Live' ,39,'')
+    for source in sources["Value"]:
+        cname=Colored(source["Sport"] ,'EB')
+        if not "cyber" in cname:
+            if "Opp1" in source and not source["Opp1"].encode('ascii','ignore')=="":
+                cname+=" :" + source["Opp1"].encode('ascii','ignore') + " vs " +source["Opp2"].encode('ascii','ignore') 
+            else:
+                cname+=" :" + source["Liga"].encode('ascii','ignore')
+            cid=source["VI"]
+            addDir(cname ,base64.b64encode(cid),40,'', False, True,isItFolder=False)            
+            
 def AddPopeLive(url):
     try:
 #        req = urllib2.Request(url)
@@ -1211,6 +1227,18 @@ def getPV2Auth():
     response = urllib2.urlopen(req)
     link=response.read()
     return link
+
+
+def PlayStreamSports(url):
+
+    urlToPlay=base64.b64decode(url)
+    import math,random
+    servers=["OTMuMTg5LjU4LjQy","MTg1LjI4LjE5MC4xNTg=","MTc4LjE3NS4xMzIuMjEw","MTc4LjE3LjE2OC45MA=="];
+    sid=int(math.floor(random.random()*len(servers)) )
+    urlToPlay=base64.b64decode('cnRtcGU6Ly8lcy94bGl2ZSBwbGF5cGF0aD1yYXc6c2wzXyVzIGNvbm49UzpjbGllbnQgY29ubj1TOjMuMS4wLjQgdGltZW91dD0xMA==')%(base64.b64decode(servers[sid]),urlToPlay)
+    listitem = xbmcgui.ListItem( label = str(name), iconImage = "DefaultVideo.png", thumbnailImage = xbmc.getInfoImage( "ListItem.Thumb" ) )
+    print "playing stream name: " + str(name) 
+    xbmc.Player( xbmc.PLAYER_CORE_AUTO ).play( urlToPlay, listitem)    
     
 def PlayPV2Link(url):
 
@@ -2013,13 +2041,19 @@ try:
 	elif mode==37 :
 		print "Play url is "+url
 		PlayPV2Link(url) 
-        
+
+	elif mode==39 :
+		print "Play url is "+url
+		AddStreamSports(url) 
+	elif mode==40 :
+		print "Play url is "+url
+		PlayStreamSports(url)         
 except:
 	print 'somethingwrong'
 	traceback.print_exc(file=sys.stdout)
 	
 
-if not ( (mode==3 or mode==4 or mode==9 or mode==11 or mode==15 or mode==21 or mode==22 or mode==27 or mode==33 or mode==35 or mode==37)  )  :
+if not ( (mode==3 or mode==4 or mode==9 or mode==11 or mode==15 or mode==21 or mode==22 or mode==27 or mode==33 or mode==35 or mode==37 or mode==40)  )  :
 	if mode==144:
 		xbmcplugin.endOfDirectory(int(sys.argv[1]),updateListing=True)
 	else:
