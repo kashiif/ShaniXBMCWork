@@ -943,23 +943,29 @@ def replaceKARVariables(liveLink,pDialog,title):
     return liveLink.replace('$KARLOGINCODE$',reg_code)
 
 def replaceYOVariables(liveLink,pDialog,title):
-    if not liveLink.endswith('.php'):
-        return liveLink
-    sUser=selfAddon.getSetting( "YOUSER" )
-    sPwd=selfAddon.getSetting( "YOPWD" )
+    try:
+        cfile = communityStreamPath+'/yoLoginCookie.lwp'
+        cj=getCookieJar(cfile)
+        if not liveLink.endswith('.php'):
+            return liveLink
+        sUser=selfAddon.getSetting( "YOUSER" )
+        sPwd=selfAddon.getSetting( "YOPWD" )
 
-    if sUser=="" or sPwd=="":
-        return ""
-    cfile = communityStreamPath+'/yoLoginCookie.lwp'
-    cj=getCookieJar(cfile)
-    htmlD=getUrl('http://yooanime.com/index.php', cookieJar=cj,timeout=20)
-    if  'Log In | Register' in htmlD:
-        post = urllib.urlencode({'rememberMe':1,'username':sUser,'password':sPwd,'submit':'Login'})
-        htmlD=getUrl('http://yooanime.com/index.php', cookieJar=cj,post=post,timeout=20)
-
+        if sUser<>"" and sPwd<>"":
+            htmlD=getUrl('http://yooanime.com/index.php', cookieJar=cj,timeout=20)
+            if  'Log In | Register' in htmlD:
+                post = urllib.urlencode({'rememberMe':1,'username':sUser,'password':sPwd,'submit':'Login'})
+                htmlD=getUrl('http://yooanime.com/index.php', cookieJar=cj,post=post,timeout=20)
+    except: pass
     page_data=getUrl(liveLink, cookieJar=cj,timeout=20)
-    code_pat='\[\{file:"(.*?)"'        
-    reg_code=re.compile(code_pat).findall(page_data)[0]
+    code_pat='\[\{file:.?"(.*?)"'        
+    reg_code=re.compile(code_pat).findall(page_data)
+    if len(reg_code)==0:
+        code_pat='file: window.atob\(\'(.*?)\''        
+        reg_code=re.compile(code_pat).findall(page_data)
+        reg_code=base64.b64decode(reg_code[0])
+    else: reg_code=reg_code[0]
+    
     saveCookieJar(cj,cfile)
     if reg_code.startswith('rtmp'):
         reg_code+=' timeout=10'
