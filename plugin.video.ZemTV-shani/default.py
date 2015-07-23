@@ -1235,7 +1235,7 @@ def PlayStreamSports(url):
     import math,random
     servers=["OTMuMTg5LjU4LjQy","MTg1LjI4LjE5MC4xNTg=","MTc4LjE3NS4xMzIuMjEw","MTc4LjE3LjE2OC45MA=="];
     sid=int(math.floor(random.random()*len(servers)) )
-    urlToPlay=base64.b64decode('cnRtcGU6Ly8lcy94bGl2ZSBwbGF5cGF0aD1yYXc6c2wzXyVzIGNvbm49UzpjbGllbnQgY29ubj1TOjMuMS4wLjQgdGltZW91dD0xMA==')%(base64.b64decode(servers[sid]),urlToPlay)
+    urlToPlay=base64.b64decode('cnRtcGU6Ly8lcy94bGl2ZSBwbGF5cGF0aD1yYXc6c2wxXyVzIGNvbm49UzpjbGllbnQgY29ubj1TOjMuMS4wLjQgdGltZW91dD0xMA==')%(base64.b64decode(servers[sid]),urlToPlay)
     listitem = xbmcgui.ListItem( label = str(name), iconImage = "DefaultVideo.png", thumbnailImage = xbmc.getInfoImage( "ListItem.Thumb" ) )
     print "playing stream name: " + str(name) 
     xbmc.Player( xbmc.PLAYER_CORE_AUTO ).play( urlToPlay, listitem)    
