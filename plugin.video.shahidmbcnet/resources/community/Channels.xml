@@ -1,11 +1,10 @@
 <channels>
 <channel>
-	<cname>Infosport Plus</cname>
-	<imageurl>http://www.lyngsat-logo.com/hires/cc/canalplus_fr_infosport_plus.png</imageurl>
+	<cname>Special Investigation</cname>
+	<imageurl>http://www.capatv.com/wp-content/uploads/2015/03/special_investigation-1030x686.jpg</imageurl>
 	<enabled>True</enabled>
 	<assignedcategory>
 	<category>french</category>
-	<category>sports</category>
 	</assignedcategory>
 </channel>
 <channel>
