@@ -379,8 +379,9 @@ def AddPv2Sports(url=None):
         if source.findtext('programCategory').lower()=='sports':
             cname=source.findtext('programTitle')
             cid=source.findtext('programURL')
-            addDir(cname ,base64.b64encode(cid),37,'', False, True,isItFolder=False)
-
+            cimage=source.findtext('programImage')
+            addDir(cname ,base64.b64encode(cid),37,cimage, False, True,isItFolder=False)
+            
 def AddStreamSports(url=None):
     jsondata=getUrl('http://videostream.dn.ua/list/GetLeftMenuShort?lng=en')
     sources= json.loads(jsondata)
