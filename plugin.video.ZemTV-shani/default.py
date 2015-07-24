@@ -220,14 +220,94 @@ def PlayFlashTv(url):
     xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
     xbmcPlayer.play(playlist) 
     
+def PlayCricFree(url):
+    progress = xbmcgui.DialogProgress()
+    progress.create('Progress', 'Fetching Streaming Info')
+    progress.update( 10, "", "Finding links..", "" )
+
+    res=getUrl(url)
+    patt='<iframe frameborder="0" marginheight="0".*?src="(.*?)" id="iframe"'
+    url2=re.findall(patt,res)[0]
+    referer=[('Referer',url)]
+    res=getUrl(url2,headers=referer)
+    urlToPlay=None
+    supported=False
+    if 'theactionlive.com/' in res:
+        supported=True
+        progress.update( 30, "", "Finding links..stage2", "" )
+        patt="id='(.*?)'.*?width='(.*)'.*?height='(.*?)'"
+        gid,wd,ht=re.findall(patt,res)[0]
+        referer=[('Referer',url2)]
+        url3='http://theactionlive.com/livegamecr.php?id=%s&width=%s&height=%s&stretching='%(gid,wd,ht)
+        res=getUrl(url3,headers=referer)    
+        if 'biggestplayer.me' in res:
+            progress.update( 50, "", "Finding links..stage3", "" )
+            patt="id='(.*?)'.*?width='(.*)'.*?height='(.*?)'"
+            gid,wd,ht=re.findall(patt,res)[0]
+            referer=[('Referer',url3)]
+            url4='http://biggestplayer.me/streamcr.php?id=%s&width=%s&height=%s'%(gid,wd,ht)
+            progress.update( 80, "", "Finding links..last stage", "" )
+            res=getUrl(url4,headers=referer)    
+            patt='file: "(.*?)"'
+            urlToPlay=re.findall(patt,res)[0];
+            referer=[('Referer',url4)]
+            urlToPlay+='|Referer='+url4
+    if 'www.reytv.co' in res:
+        supported=True
+        progress.update( 30, "", "Finding links..stage2", "" )
+        patt="fid='(.*?)'.*?v_width=(.*?);.*?v_height=(.*?);"
+        gid,wd,ht=re.findall(patt,res)[0]
+        referer=[('Referer',url2)]
+        url3='http://reytv.co/embedo.php?live=%s&width=%s&height=%s'%(gid,wd,ht)
+        progress.update( 50, "", "Finding links..stage3", "" )
+        res=getUrl(url3,headers=referer)
+        
+        patt='file: "(.*?)"'
+        rtmp=re.findall(patt,res)[0]
+        patt='securetoken: "(.*?)"'
+        token=re.findall(patt,res)[0]           
+        urlToPlay=rtmp + ' token=' + token + ' pageUrl='+url3+ ' swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf'+' timeout=20'
     
+    if urlToPlay and len(urlToPlay)>0:
+        playlist = xbmc.PlayList(1)
+        playlist.clear()
+        listitem = xbmcgui.ListItem( label = str(name), iconImage = "DefaultVideo.png", thumbnailImage = xbmc.getInfoImage( "ListItem.Thumb" ) )
+        playlist.add(urlToPlay,listitem)
+        xbmcPlayer = xbmc.Player(xbmc.PLAYER_CORE_AUTO)
+        xbmcPlayer.play(playlist) 
+    else:
+        dialog = xbmcgui.Dialog()
+        if not supported:
+            ok = dialog.ok('Not Supported','This channel is not supported yet')
+        
+def sorted_nicely( l ): 
+    """ Sort the given iterable in the way that humans expect.""" 
+    convert = lambda text: int(text) if text.isdigit() else text 
+    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key[1]) ] 
+    return sorted(l, key = alphanum_key)  
 def AddP3gSports(url):
     pat="pe='text\/javascript'>ch='(.*?)'"
     res=getUrl("http://c247.tv/")
     channels=re.findall(pat,res)
     channels=sorted(channels,key=lambda s: s[0].lower()   )
+
+    
     for i in channels:
         addDir('%s P3G.Tv (requires new rtmp)'%(i.replace('_','')) ,'http://c247.tv/live.php?ch=%s'%i,17,'', False, True,isItFolder=False)
+
+
+        
+def AddCricFree(url):
+    pat='<li.*?><a href="(.*?)".*?channels-icon (.*?)"'
+    res=getUrl("http://cricfree.sx/")
+    channels=re.findall(pat,res)
+    
+    pat='<li><a href="(.*?)".*?\<span class="chclass3"\>(.*?)<'
+    channels+=re.findall(pat,res)    
+#    channels=sorted(channels,key=lambda s: s[1].lower()   )
+    channels=sorted_nicely(channels)
+    for u,n in channels:
+        addDir(n.capitalize(),u,42,'', False, True,isItFolder=False)
     
 
 ##http://c247.tv/
@@ -305,7 +385,9 @@ def AddSports(url):
     addDir('Super Sports' ,'sss',34,'')
     addDir('PV2 Sports' ,'sss',36,'')
     addDir('Streams' ,'sss',39,'')
+    addDir('cricfree.sx' ,'sss',41,'')
 
+    
 def PlayPopeLive(url):
     playlist = xbmc.PlayList(1)
     #url='rtmp://rtmp.popeoftheplayers.pw:1935/redirect playpath='+url+base64.b64decode('IHN3ZlZmeT10cnVlIHN3ZlVybD1odHRwOi8vcG9wZW9mdGhlcGxheWVycy5wdy9hdGRlZGVhZC5zd2YgZmxhc2hWZXI9V0lOXDIwMTYsMCwwLDIzNSBwYWdlVXJsPWh0dHA6Ly9wb3Blb2Z0aGVwbGF5ZXJzLnB3L2F0ZGVkZWFkLnN3ZiBsaXZlPXRydWUgdGltZW91dD0yMCB0b2tlbj0jYXRkJSMkWkg=')
@@ -381,6 +463,8 @@ def AddPv2Sports(url=None):
             cid=source.findtext('programURL')
             cimage=source.findtext('programImage')
             addDir(cname ,base64.b64encode(cid),37,cimage, False, True,isItFolder=False)
+         
+            
             
 def AddStreamSports(url=None):
     jsondata=getUrl('http://videostream.dn.ua/list/GetLeftMenuShort?lng=en')
@@ -2049,12 +2133,18 @@ try:
 	elif mode==40 :
 		print "Play url is "+url
 		PlayStreamSports(url)         
+	elif mode==41 :
+		print "Play url is "+url
+		AddCricFree(url) 
+	elif mode==42 :
+		print "Play url is "+url
+		PlayCricFree(url) 
 except:
 	print 'somethingwrong'
 	traceback.print_exc(file=sys.stdout)
 	
 
-if not ( (mode==3 or mode==4 or mode==9 or mode==11 or mode==15 or mode==21 or mode==22 or mode==27 or mode==33 or mode==35 or mode==37 or mode==40)  )  :
+if not ( (mode==3 or mode==4 or mode==9 or mode==11 or mode==15 or mode==21 or mode==22 or mode==27 or mode==33 or mode==35 or mode==37 or mode==40 or mode==42)  )  :
 	if mode==144:
 		xbmcplugin.endOfDirectory(int(sys.argv[1]),updateListing=True)
 	else:
