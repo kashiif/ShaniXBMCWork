@@ -36,6 +36,15 @@ cache2Hr              = StorageServer.StorageServer(cache_table,1)
 
 teledunet_htmlfile='TeledunetchannelList.html'
 profile_path =  xbmc.translatePath(selfAddon.getAddonInfo('profile'))
+def stringToCode(str):
+    r=0
+    for i in range(0,len(str)):
+        r+=ord(str[i])
+    return r
+    
+ 
+ 
+ 
 def PlayStream(sourceEtree, urlSoup, name, url):
     try:
         channelId = urlSoup.url.text
@@ -115,8 +124,11 @@ def PlayStream(sourceEtree, urlSoup, name, url):
             v2 = 222; #something wrong in calc, may be timezone?
             dz=re.findall(dz_patt, link)[0]        
             ip=re.findall(ip_patt, link)[0]
-            ip2=''.join(ip.split('.')[0:4])
-            token=str(long(ip2)*len(channelId)*int(dz)+int(0 +random.random() *10))
+            ip2=ip.replace('.','')
+
+#            token=str(long(ip2)*len(channelId)*int(dz)+int(0 +random.random() *10))
+            token=(long(ip2)*stringToCode(channelId)*long(dz)*stringToCode(selfAddon.getSetting( "teledunetTvLogin" )))
+ 
             print 'dz',	dz        
             access_id=str(((365-int(dz))*long(ip2)*v1)+v2)
             access_id='?id1='+access_id
