@@ -56,6 +56,8 @@ def PlayStream(sourceEtree, urlSoup, name, url):
         howMaytimes=2    
         totalTried=0
         doDummy=False           
+        
+
         while totalTried<howMaytimes:
             totalTried+=1
             if 1==1:
@@ -66,6 +68,7 @@ def PlayStream(sourceEtree, urlSoup, name, url):
                     link=None
                     result = getChannelHTML(channelId);#cache2Hr.cacheFunction(getChannelHTML)
                     
+                    
                     if result:
                         link=result['link']
                         token=result['token']
@@ -74,6 +77,7 @@ def PlayStream(sourceEtree, urlSoup, name, url):
                         print 'file_exists',len(link)
                     else:
                         print 'cache or the url failed!!'
+                        
                     rtmp =re.findall(('rtmp://(.*?)/%s\''%channelId), link)
                     if len(rtmp)==0:
                         print 'creating it manually'
@@ -382,8 +386,8 @@ def getChannelHTML(cid):
         rnd=str(int(time.time()*1000))
         post={'rndval':rnd}
         post = urllib.urlencode(post)
-        html=getUrl('http://www.teledunet.com/comment.php?w=100%&pseudo_2=&get_comments=Salon_Publique', cookie_jar,referer='http://www.teledunet.com/',post=post)
-        answer=re.findall('answer\',\'(.*?)\'', html)
+        html=getUrl('http://www.teledunet.com/update_connect_date.php', cookie_jar,referer='http://www.teledunet.com/?channel='+cid,post=post)
+        answer=None#re.findall('answer\',\'(.*?)\'', html)
         newod1=None
         if answer and len(answer)>0:
             for ans in answer:
