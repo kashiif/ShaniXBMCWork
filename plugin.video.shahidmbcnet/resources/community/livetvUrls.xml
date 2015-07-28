@@ -1,46 +1,55 @@
 <streaminginfos>
 
 	<streaminginfo>
+		<cname>Animaux</cname>
+		<chnumber>ch1093</chnumber>
+		<link></link>
+	</streaminginfo>
+	
+	<streaminginfo>
+		<cname>HD1</cname>
+		<chnumber>ch1032</chnumber>
+		<link></link>
+	</streaminginfo>
+	
+	<streaminginfo>
 		<cname>Comedie+</cname>
 		<chnumber>ch978</chnumber>
-		<link>http://www.livetv.tn/Comedie-Plus-en-direct-live.html</link>
+		<link></link>
 	</streaminginfo>
 	
 	<streaminginfo>
 		<cname>Canal J</cname>
 		<chnumber>ch999</chnumber>
-		<link>http://www.livetv.tn/Canal-J-en-direct-live.html</link>
+		<link></link>
 	</streaminginfo>
 
 	<streaminginfo>
 		<cname>Foot Plus</cname>
 		<chnumber>ch903</chnumber>
-		<link>http://www.livetv.tn/Foot-Plus-HD-en-direct-live.html</link>
+		<link></link></streaminginfo>
+	
+	<streaminginfo>
+        <cname>Bein 1 FR</cname>
+        <chnumber>ch507</chnumber>
+		<link></link>
 	</streaminginfo>
 
 	<streaminginfo>
-        	<cname>Bein 1 FR</cname>
-        	<chnumber>ch507</chnumber>
-		<link>http://www.livetv.tn/Bein-Sport-1-FR-en-direct-live.html</link>
+        <cname>Bein 2 FR</cname>
+        <chnumber>ch508</chnumber>
+		<link>http://www.livetv.tn/Bein-Sport-2-FR-en-direct-live.html</link>
 	</streaminginfo>
 
-        <streaminginfo>
-        <cname>Bein 2 FR</cname>
-        <title>HD</title>
-        <chnumber>ch508</chnumber>
-    <link>http://www.livetv.tn/Bein-Sport-2-FR-en-direct-live.html</link></streaminginfo>
-
-        <streaminginfo>
+	<streaminginfo>
         <cname>Bein 3 FR</cname>
-        <title>HD</title>
         <chnumber>ch906</chnumber>
-    <link>http://www.livetv.tn/Bein-Sport-3-FR-en-direct-live.html</link></streaminginfo>
+		<link>http://www.livetv.tn/Bein-Sport-3-FR-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>Bein Sport 1</cname>
-        <title>HD</title>
         <chnumber>ch12</chnumber>
-    <link>http://www.livetv.tn/Bein-Sport-HD-1-en-direct-live.html</link></streaminginfo>
+		<link>http://www.livetv.tn/Bein-Sport-HD-1-en-direct-live.html</link></streaminginfo>
 
         <streaminginfo>
         <cname>Bein Sport 2</cname>
@@ -231,7 +240,7 @@
         <cname>Al Janoubiya</cname>
         <chnumber>ch7</chnumber>
     <link>http://www.livetv.tn/Al-Janoubia-TV-en-direct-live.html</link></streaminginfo>
-    
+
         <streaminginfo>
         <cname>Al Magharibia</cname>
         <chnumber>ch847</chnumber>
@@ -437,45 +446,45 @@
         <chnumber>ch335</chnumber>
     <link>http://www.livetv.tn/Cairo-Film-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>Algerie</cname>
         <chnumber>ch860</chnumber>
     <link>http://www.livetv.tn/Canal-Algerie-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>Canal Cinema</cname>
         <chnumber>ch801</chnumber>
     <link>http://www.livetv.tn/Canal-Cinema-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>Canal plus</cname>
         <chnumber>ch800</chnumber>
     <link>http://www.livetv.tn/Canal-Plus-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>Canal Plus Decale</cname>
         <chnumber>ch930</chnumber>
-    <link>http://www.livetv.tn/Canal-Plus-Decale-HD-en-direct-live.html</link></streaminginfo>
+		<link>http://www.livetv.tn/Canal-Plus-Decale-HD-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>Canal Plus Family-</cname>
         <chnumber>ch919</chnumber>
     <link>http://www.livetv.tn/Canal-Plus-Family-HD-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>Canal Plus Series</cname>
         <chnumber>ch306</chnumber>
     <link>http://www.livetv.tn/Canal-Plus-Series-HD-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>Canal+ Sport</cname>
         <chnumber>ch916</chnumber>
     <link>http://www.livetv.tn/Canal-Plus-Sport-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>Cartoon Network</cname>
         <chnumber>ch65</chnumber>
-    <link>http://www.livetv.tn/Cartoon-Network-AR-en-direct-live.html</link></streaminginfo>
+		<link>http://www.livetv.tn/Cartoon-Network-AR-en-direct-live.html</link></streaminginfo>
 
         <streaminginfo>
         <cname>CN FR</cname>
@@ -687,19 +696,19 @@
         <chnumber>ch349</chnumber>
     <link>http://www.livetv.tn/Future-TV-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>Future News</cname>
         <chnumber>ch922</chnumber>
-    <link>http://www.livetv.tn/Future-TV-USA-en-direct-live.html</link></streaminginfo>
+    <link>http://www.livetv.tn/forvip/Future-TV-USA-en-direct-live.html</link></streaminginfo>
 
         <streaminginfo>
         <cname>Ghinwa</cname>
         <chnumber>ch121</chnumber>
     <link>http://www.livetv.tn/Ghinwa-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
+	<streaminginfo>
         <cname>GULLI</cname>
-        <chnumber>ch307</chnumber>
+        <chnumber>ch1103</chnumber>
     <link>http://www.livetv.tn/Gulli-en-direct-live.html</link></streaminginfo>
 
         <streaminginfo>
@@ -1084,7 +1093,7 @@
     <link>http://www.livetv.tn/Panorama-Film-en-direct-live.html</link></streaminginfo>
 
         <streaminginfo>
-        <cname>Planet Plus</cname>
+        <cname>Planete Plus</cname>
         <chnumber>ch901</chnumber>
     <link>http://www.livetv.tn/Planet-Plus-HD-en-direct-live.html</link></streaminginfo>
 
@@ -1098,6 +1107,11 @@
         <chnumber>ch401</chnumber>
     <link>http://www.livetv.tn/Qatar-TV-en-direct-live.html</link></streaminginfo>
 
+	<streaminginfo>
+        <cname>Rotana Aflam</cname>
+        <chnumber>ch1014</chnumber>
+    <link>http://www.livetv.tn/Rotana-Aflem-plus-HD-en-direct-live.html</link></streaminginfo>
+	
         <streaminginfo>
         <cname>Rotana cinema</cname>
         <chnumber>ch45</chnumber>
@@ -1253,10 +1267,10 @@
         <chnumber>ch10</chnumber>
     <link>http://www.livetv.tn/Telvza-TV-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
-        <cname>TF1</cname>
-        <chnumber>ch714</chnumber>
-    <link>http://www.livetv.tn/TF1-en-direct-live.html</link></streaminginfo>
+	<streaminginfo>
+		<cname>TF1</cname>
+		<chnumber>ch714</chnumber>
+		<link>http://www.livetv.tn/TF1-en-direct-live.html</link></streaminginfo>
 
         <streaminginfo>
         <cname>TF6</cname>
