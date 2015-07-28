@@ -1,11 +1,22 @@
 <streaminginfos>
 
- <streaminginfo>
-        <cname>Bein 1 FR</cname>
-        <title>HD</title>
-        <chnumber>ch507</chnumber>
-    <link>http://www.livetv.tn/Bein-Sport-1-FR-en-direct-live.html</link>
-</streaminginfo>
+	<streaminginfo>
+		<cname>Canal J</cname>
+		<chnumber>ch999</chnumber>
+		<link>http://www.livetv.tn/Canal-J-en-direct-live.html</link>
+	</streaminginfo>
+
+	<streaminginfo>
+		<cname>Foot Plus</cname>
+		<chnumber>ch903</chnumber>
+		<link>http://www.livetv.tn/Foot-Plus-HD-en-direct-live.html</link>
+	</streaminginfo>
+
+	<streaminginfo>
+        	<cname>Bein 1 FR</cname>
+        	<chnumber>ch507</chnumber>
+		<link>http://www.livetv.tn/Bein-Sport-1-FR-en-direct-live.html</link>
+	</streaminginfo>
 
         <streaminginfo>
         <cname>Bein 2 FR</cname>
