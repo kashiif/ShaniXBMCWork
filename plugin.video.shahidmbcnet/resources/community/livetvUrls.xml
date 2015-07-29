@@ -1,4 +1,10 @@
 <streaminginfos>
+	
+	<streaminginfo>
+		<cname>ZDF</cname>
+		<chnumber>ch1089</chnumber>
+		<link></link>
+	</streaminginfo>
 
 	<streaminginfo>
 		<cname>Chasse et Peche</cname>
@@ -558,10 +564,10 @@
         <chnumber>ch891</chnumber>
     <link>http://www.livetv.tn/CNBC-Arabic-en-direct-live.html</link></streaminginfo>
 
-        <streaminginfo>
-        <cname>CNN</cname>
+	<streaminginfo>
+        <cname>Al Fayhaa</cname>
         <chnumber>ch879</chnumber>
-    <link>http://www.livetv.tn/CNN-en-direct-live.html</link></streaminginfo>
+	<link></link></streaminginfo>
 
         <streaminginfo>
         <cname>Coran</cname>
