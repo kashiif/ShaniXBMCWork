@@ -4794,7 +4794,7 @@
 </channel>	
 <channel>
 	<cname>Canal Plus Series</cname>
-	<imageurl>http://www.lyngsat-logo.com/hires/cc/canalplus_es_series.png</imageurl>
+	<imageurl>http://www.lyngsat-logo.com/hires/cc/canalplus_fr_series.png</imageurl>
 	<enabled>True</enabled>
 	<assignedcategory>
 	<category>french</category>
@@ -7129,7 +7129,7 @@
 </channel>
 <channel>
 	<cname>Canal Plus Decale</cname>
-	<imageurl>http://www.lyngsat-logo.com/logo/tv/cc/canalplus_fr_decale.png</imageurl>
+	<imageurl>http://www.lyngsat-logo.com/hires/cc/canalplus_fr_decale.png</imageurl>
 	<enabled>True</enabled>
 	<assignedcategory>
 	<category>french</category>
@@ -7137,7 +7137,7 @@
 </channel>	
 <channel>
 	<cname>Canal Plus Family</cname>
-	<imageurl>http://www.lyngsat-logo.com/logo/tv/cc/canalplus_pl_family.png</imageurl>
+	<imageurl>http://www.lyngsat-logo.com/hires/cc/canalplus_fr_family.png</imageurl>
 	<enabled>True</enabled>
 	<assignedcategory>
 	<category>french</category>
