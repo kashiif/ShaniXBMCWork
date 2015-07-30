@@ -1,3 +1,6 @@
+[B]Version 2.4.6[/B]
+- fix arydigital 
+
 [B]Version 2.4.5[/B]
 - icon change
 

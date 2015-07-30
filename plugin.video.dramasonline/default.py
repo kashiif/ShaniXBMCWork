@@ -128,8 +128,12 @@ def AddSeries(Fromurl):
 #	match =re.findall('<img src="(.*?)" alt=".*".+<\/a>\n*.+<div class="post-title"><a href="(.*?)".*<b>(.*)<\/b>', link, re.UNICODE)
 	regstring='<a title="(.*?)" href="(.*?)".*?img.*?src="(.*?)" wid'
 	optiontype=1
-	if 'ary-digital'  in Fromurl or  'aplus-ent'  in Fromurl: 
-		regstring='\s*<a href="(.*?)"targe.*?<img.*?alt="(.*?)" src="(.*?)"'
+	if 'ary-digital'  in Fromurl: 
+		regstring='\s*<a href="(.*?)".?targe.*?<img.*?src="(.*?)".*?alt="(.*?)"'
+		optiontype=2
+		match =re.findall(regstring, link, re.M)
+	elif 'aplus-ent'  in Fromurl:
+		regstring='\s*<a href="(.*?)".?targe.*?<img.*?alt="(.*?)".*?src="(.*?)"'
 		optiontype=2
 		match =re.findall(regstring, link, re.M)
 	else:
@@ -144,8 +148,12 @@ def AddSeries(Fromurl):
 
 	for cname in match:
 
-		item_name = name_from_re = cname[optiontype-1]
-
+		if optiontype==1:    
+			item_name = name_from_re = cname[0]
+		elif optiontype==2:
+			item_name = name_from_re = cname[2]
+		else:
+			item_name = name_from_re = cname[1]        
 		name_from_url = cname[0].rstrip('/').split('/')
 		# get last part of url
 		name_from_url = name_from_url[-1].replace('-', ' ')
@@ -160,10 +168,11 @@ def AddSeries(Fromurl):
 		print item_name
 
 		if optiontype==2:
-			addDir(item_name, cname[0], 3, cname[2])#url,name,jpg#name,url,mode,icon
-		else:
+			addDir(item_name, cname[0], 3, cname[1])#url,name,jpg#name,url,mode,icon
+		elif optiontype==1:
 			addDir(item_name, cname[1], 3, cname[2])#name,url,img
-		
+		else:
+			addDir(item_name, cname[0], 3, cname[2])#name,url,img		
 #	<a href="http://www.zemtv.com/page/2/">&gt;</a></li>
 #	match =re.findall('<a href="(.*)">&gt;<\/a><\/li>', link, re.IGNORECASE)
 	

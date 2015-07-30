@@ -1274,8 +1274,8 @@
      </assignedcategory>
 </channel>
 <channel>
-     <cname>Chasse_et_peche</cname>
-     <imageurl>https://pbs.twimg.com/profile_images/378800000220355787/06ec2195d13f961d11696d4ef60ef631.jpeg</imageurl>
+     <cname>Chasse et Peche</cname>
+     <imageurl>http://www.lyngsat-logo.com/hires/cc/chasse_et_peche.png</imageurl>
      <enabled>True</enabled>
      <assignedcategory>
      <category>doc</category>
@@ -2507,7 +2507,7 @@
 	</assignedcategory>
 </channel>
 <channel>
-	<cname>Grande Lille TV</cname>
+	<cname>Grand Lille TV</cname>
 	<imageurl>http://www.gwenael.org/xbmc-streams/images/channels/100.png</imageurl>
 	<enabled>True</enabled>
 	<assignedcategory>
@@ -4794,7 +4794,7 @@
 </channel>	
 <channel>
 	<cname>Canal Plus Series</cname>
-	<imageurl>http://www.lyngsat-logo.com/hires/cc/canalplus_es_series.png</imageurl>
+	<imageurl>http://www.lyngsat-logo.com/hires/cc/canalplus_fr_series.png</imageurl>
 	<enabled>True</enabled>
 	<assignedcategory>
 	<category>french</category>
@@ -7129,7 +7129,7 @@
 </channel>
 <channel>
 	<cname>Canal Plus Decale</cname>
-	<imageurl>http://www.lyngsat-logo.com/logo/tv/cc/canalplus_fr_decale.png</imageurl>
+	<imageurl>http://www.lyngsat-logo.com/hires/cc/canalplus_fr_decale.png</imageurl>
 	<enabled>True</enabled>
 	<assignedcategory>
 	<category>french</category>
@@ -7137,7 +7137,7 @@
 </channel>	
 <channel>
 	<cname>Canal Plus Family</cname>
-	<imageurl>http://www.lyngsat-logo.com/logo/tv/cc/canalplus_pl_family.png</imageurl>
+	<imageurl>http://www.lyngsat-logo.com/hires/cc/canalplus_fr_family.png</imageurl>
 	<enabled>True</enabled>
 	<assignedcategory>
 	<category>french</category>

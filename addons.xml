@@ -2,7 +2,7 @@
 <addons>
 <addon id="plugin.video.dramasonline"
        name="DramasOnline.com"
-       version="2.4.5"
+       version="2.4.6"
        provider-name="shani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -202,7 +202,7 @@
 
 <addon id="plugin.video.ZemTV-shani"
        name="ZemTV.com"
-       version="3.6.1"
+       version="3.6.2"
        provider-name="shani">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
