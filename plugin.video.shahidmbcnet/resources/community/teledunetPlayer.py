@@ -141,7 +141,7 @@ def PlayStream(sourceEtree, urlSoup, name, url):
        
             liveLinkdummy=liveLink%(rtmp,'',freeCH,selfAddon.getSetting( "teledunetTvLogin" ),'')
 #            liveLink=liveLink%(rtmp,channelId,access_id,freeCH,selfAddon.getSetting( "teledunetTvLogin" ),token)
-            liveLink=liveLink%(rtmp,channelId,freeCH,selfAddon.getSetting( "teledunetTvLogin" ),token)
+            liveLink=liveLink%(rtmp,channelId,freeCH,selfAddon.getSetting( "teledunetTvLogin" ).replace(' ','%20'),token)
             patt='swfUrl=(.*?) '
             swf=re.findall(patt, liveLink)[0]
             getUrl(swf)
