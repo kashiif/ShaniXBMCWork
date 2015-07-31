@@ -126,35 +126,14 @@ def AddSeries(Fromurl):
 #	match =re.findall('onclick="playChannel\(\'(.*?)\'\);".?>(.*?)</a>', link, re.DOTALL|re.IGNORECASE)
 #	match =re.findall('<div class=\"post-title\"><a href=\"(.*?)\".*<b>(.*)<\/b><\/a>', link, re.IGNORECASE)
 #	match =re.findall('<img src="(.*?)" alt=".*".+<\/a>\n*.+<div class="post-title"><a href="(.*?)".*<b>(.*)<\/b>', link, re.UNICODE)
-	regstring='<a title="(.*?)" href="(.*?)".*?img.*?src="(.*?)" wid'
-	optiontype=1
-	if 'ary-digital'  in Fromurl: 
-		regstring='\s*<a href="(.*?)".?targe.*?<img.*?src="(.*?)".*?alt="(.*?)"'
-		optiontype=2
-		match =re.findall(regstring, link, re.M)
-	elif 'aplus-ent'  in Fromurl:
-		regstring='\s*<a href="(.*?)".?targe.*?<img.*?alt="(.*?)".*?src="(.*?)"'
-		optiontype=2
-		match =re.findall(regstring, link, re.M)
-	else:
-		match =re.findall(regstring, link, re.M|re.DOTALL)
-	#match=re.compile('<a href="(.*?)"targe.*?<img.*?alt="(.*?)" src="(.*?)"').findall(link)
-	#print '\n'.join([str(x) for x in match])
 
 
-	print 'optiontype %s' % optiontype
+	pattern = re.compile('<a (title=".*?"\s)*href="(?P<url>[^"]*)"\s*[^>]*><img (class="[^"]*")*(\salt="(?P<alt>[^"]*)"|\ssrc="(?P<imgsrc>[^"]*)")+')
 
+	for cname in pattern.finditer(link):
+		item_name = name_from_re = cname.group('alt')
+		name_from_url = cname.group('url').rstrip('/').split('/')
 
-
-	for cname in match:
-
-		if optiontype==1:    
-			item_name = name_from_re = cname[0]
-		elif optiontype==2:
-			item_name = name_from_re = cname[2]
-		else:
-			item_name = name_from_re = cname[1]        
-		name_from_url = cname[0].rstrip('/').split('/')
 		# get last part of url
 		name_from_url = name_from_url[-1].replace('-', ' ')
 
@@ -165,22 +144,16 @@ def AddSeries(Fromurl):
 
 		item_name = item_name.replace('Watch ', '').replace('watch ', '').title()
 
-		print item_name
+		#print item_name, cname[groupUrl], cname[groupImage]
 
-		if optiontype==2:
-			addDir(item_name, cname[0], 3, cname[1])#url,name,jpg#name,url,mode,icon
-		elif optiontype==1:
-			addDir(item_name, cname[1], 3, cname[2])#name,url,img
-		else:
-			addDir(item_name, cname[0], 3, cname[2])#name,url,img		
+		addDir(item_name, cname.group('url'), 3, cname.group('imgsrc')) #name, url, mode, icon
+
+	print '8'
 #	<a href="http://www.zemtv.com/page/2/">&gt;</a></li>
-#	match =re.findall('<a href="(.*)">&gt;<\/a><\/li>', link, re.IGNORECASE)
-	
-#	if len(match)==1:
-#		addDir('Next Page' ,match[0] ,2,'')
-#       print match
-	
-	return
+	match =re.findall("<div class='pagination'>.*<a href='([^']*)'>&rsaquo;</a>", link, re.IGNORECASE|re.DOTALL)
+
+	if len(match)==1:
+		addDir('Next Page' ,match[0] ,2, '')
 
 def TopRatedDramas(Fromurl):
 	#print Fromurl
@@ -246,14 +219,11 @@ def AddEnteries(Fromurl):
 	for cname in match:
 		addDir(cname[1] ,cname[0] ,4,cname[2],isItFolder=False)
 		
-#	<a href="http://www.zemtv.com/page/2/">&gt;</a></li>
-	match =re.findall('<link rel=\'next\' href=\'(.*?)\' \/>', link, re.IGNORECASE)
-	
+	match =re.findall("<div class='pagination'>.*<a href='([^']*)'>&rsaquo;</a>", link, re.IGNORECASE|re.DOTALL)
+	#print 'match', match
+
 	if len(match)==1:
-		addDir('Next Page' ,match[0] ,3,'')
-#       print match
-	
-	return
+		addDir('Next Page' ,match[0] ,3, '')
 	
 def AddChannels(liveURL):
 	req = urllib2.Request(liveURL)
