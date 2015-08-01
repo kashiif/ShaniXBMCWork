@@ -148,7 +148,6 @@ def AddSeries(Fromurl):
 
 		addDir(item_name, cname.group('url'), 3, cname.group('imgsrc')) #name, url, mode, icon
 
-	print '8'
 #	<a href="http://www.zemtv.com/page/2/">&gt;</a></li>
 	match =re.findall("<div class='pagination'>.*<a href='([^']*)'>&rsaquo;</a>", link, re.IGNORECASE|re.DOTALL)
 
