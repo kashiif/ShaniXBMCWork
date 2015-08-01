@@ -93,16 +93,17 @@ def get_params():
 def Addtypes():
 	baseLink = 'http://www.dramasonline.com/%s-latest-dramas-episodes-online/'
 	#2 is series=3 are links
-	addDir('All Recent Episodes' ,'http://www.dramasonline.com/' ,3,'') #links 
-	addDir('HumTv Shows', baseLink % 'hum-tv' ,2,'')
-	addDir('GeoTv Shows', baseLink % 'geo-tv' ,2,'')
-	addDir('AryDigital Shows', baseLink % 'ary-digital-tv' ,2,'')
-	addDir('Hum Sitaray Shows', baseLink % 'hum-sitaray' ,2,'')
-	addDir('Express Shows', baseLink % 'express-entertainment' ,2,'')
-	addDir('APlus Shows', baseLink % 'aplus-entertainment' ,2,'')
-	addDir('Urdu1 Shows', baseLink % 'urdu-1' ,2,'')
+	addDir('All Recent Episodes' ,'http://www.dramasonline.com/' ,3,'http://i.imgur.com/qSzxay9.png') #links 
+	addDir('HumTv Shows', baseLink % 'hum-tv' ,2,'http://i.imgur.com/SPbcdsI.png')
+	addDir('GeoTv Shows', baseLink % 'geo-tv' ,2,'http://i.imgur.com/YELzFHv.png')
+	addDir('PTV Home Shows', baseLink % 'ptv-home' ,2,'http://i.imgur.com/vJPo6xO.png')
+	addDir('AryDigital Shows', baseLink % 'ary-digital-tv' ,2,'http://i.imgur.com/Qpvx9N4.png')
+	addDir('Hum Sitaray Shows', baseLink % 'hum-sitaray' ,2,'http://i.imgur.com/GtoMqkd.png')
+	addDir('Express Shows', baseLink % 'express-entertainment' ,2,'http://i.imgur.com/RBlvLwp.png')
+	addDir('APlus Shows', baseLink % 'aplus-entertainment' ,2,'http://i.imgur.com/wynK0iI.png')
+	addDir('Urdu1 Shows', baseLink % 'urdu-1' ,2,'http://i.imgur.com/9i396WG.jpg')
 	addDir('Teleplays' ,'http://www.dramasonline.com/?cat=255' ,3,'')# these are is links
-	addDir('Top Rated Dramas' ,'http://www.dramasonline.com/' ,5,'') # top 
+	addDir('Top Rated Dramas' ,'http://www.dramasonline.com/' ,5,'http://i.imgur.com/aFWO9Y7.png') # top 
 	addDir('Live Channels' ,'http://www.dramasonline.com/category/live-channels/' ,6,'') ##
 	addDir('Settings' ,'http://www.dramasonline.com/category/live-channels/' ,8,'',isItFolder=False) ##
 	return
